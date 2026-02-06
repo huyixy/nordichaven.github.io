@@ -1305,7 +1305,7 @@ input, select, textarea {
 			.row {
 				display: flex;
 				flex-wrap: wrap;
-				box-sizing: border-box;
+				
 				align-items: stretch;
 			}
 
@@ -3926,7 +3926,6 @@ input, select, textarea {
 					margin-left: auto;
 					margin-right: auto;
 					width: 100%;
-					height: 100%;
 					object-fit: cover;
 					display: block;
 				}
