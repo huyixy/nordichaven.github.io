@@ -224,13 +224,18 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
-			document.querySelectorAll(".accordion").forEach(button => {
-			  button.addEventListener("click", () => {
-			    button.classList.toggle("active");
-			    const panel = button.nextElementSibling;
-			    panel.style.maxHeight ? panel.style.maxHeight = null : panel.style.maxHeight = panel.scrollHeight + "px";
-			  });
-			});
+				document.querySelectorAll(".accordion").forEach(button => {
+				  button.addEventListener("click", () => {
+				    button.classList.toggle("active");
+				    const panel = button.nextElementSibling;
+
+				    if (panel.style.maxHeight) {
+				      panel.style.maxHeight = null;
+				    } else {
+				      panel.style.maxHeight = panel.scrollHeight + "px";
+				    }
+				  });
+				});
 			</script>
 
 
