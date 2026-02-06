@@ -4686,4 +4686,26 @@ input, select, textarea {
 			visibility: visible;
 		}
 
+	.service-details {
+		display: none;
+		margin-top: 1.5rem;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.service-details.visible {
+		display: block;
+		opacity: 1;
+	}
+
+	.details-toggle {
+		margin-top: 1rem;
+		background: none;
+		border: 1px solid #ccc;
+		padding: 0.6rem 1.2rem;
+		cursor: pointer;
+	}
+
+
+
 	}
