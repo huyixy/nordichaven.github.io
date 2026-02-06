@@ -224,39 +224,56 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
+
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.details-btn');
     
     buttons.forEach(button => {
         const content = button.nextElementSibling;
         
-        // Ensure content is hidden on load
+        // Mobile: Hide on load
         if (content && content.classList.contains('details-content')) {
             content.style.display = 'none';
+            // Also set opacity for mobile
+            content.style.opacity = '0';
+            content.style.maxHeight = '0';
         }
         
-        button.addEventListener('click', function() {
+        // Handle both click and touch events
+        button.addEventListener('click', handleToggle);
+        button.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // Prevent double-tap zoom
+            handleToggle.call(this);
+        }, { passive: false });
+        
+        function handleToggle() {
             if (content.style.display === 'none') {
-                // Show content
+                // Show
                 content.style.display = 'block';
-                setTimeout(() => {
-                    content.classList.add('show');
-                }, 10);
+                // Force reflow
+                void content.offsetHeight;
+                content.style.opacity = '1';
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.classList.add('show');
                 this.textContent = 'Hide service details';
                 this.classList.add('expanded');
-                this.setAttribute('aria-expanded', 'true');
             } else {
-                // Hide content
+                // Hide
+                content.style.opacity = '0';
+                content.style.maxHeight = '0';
                 content.classList.remove('show');
-                setTimeout(() => {
-                    content.style.display = 'none';
-                }, 400); // Match CSS transition duration
                 this.textContent = 'View service details';
                 this.classList.remove('expanded');
-                this.setAttribute('aria-expanded', 'false');
+                
+                // Delay display:none for transition
+                setTimeout(() => {
+                    if (!content.classList.contains('show')) {
+                        content.style.display = 'none';
+                    }
+                }, 400);
             }
-        });
+        }
     });
 });
 </script>
