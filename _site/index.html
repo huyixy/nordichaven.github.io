@@ -173,29 +173,38 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<form method="post" action="#">
+							<form id="form" method="post" action="https://api.web3forms.com/submit">
+								  <input type="hidden" name="access_key" value="6c8ad783-5d8d-4e1d-aaf6-fcb72dffb476">
+								  <input type="hidden" name="subject" value="New Submission from Site Footer">
+    							<input type="checkbox" name="botcheck" id="" style="display: none;">
+
+
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
+										<input type="text" name="name" id="name" required />
 									</div>
 									<div class="field">
 										<label for="tel">Phone Number
 										</label>
-										<input type="tel" name="phone" id="phone" />
+										<input type="tel" name="phone" id="phone" required />
 									</div>
 									<div class="field">
 										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
+										<input type="email" name="email" id="email" required />
 									</div>
 									<div class="field">
 										<label for="message">Message</label>
 										<textarea name="message" id="message" rows="3"></textarea>
 									</div>
 								</div>
+
 								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
+									<!-- <li><input type="submit" value="Send Message" /></li> -->
+									<button type="submit">Send Message</button>
 								</ul>
+								<div id="result"></div>
+
 							</form>
 						</section>
 						<section class="split contact">
@@ -233,6 +242,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/formredir.js"></script>
 
 
 	</body>
