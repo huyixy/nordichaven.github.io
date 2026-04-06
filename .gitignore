@@ -1,3 +1,2 @@
-*.css
-*.css
-*.html
+# Add repo-specific ignores here (e.g. OS files, local env).
+# Do not ignore site HTML/CSS — this project is static pages under version control.
