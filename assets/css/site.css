@@ -1,0 +1,5 @@
+/* Nordic Haven — fluid images, avoid horizontal overflow on small screens */
+.posts .image.fit img {
+	height: auto;
+	max-width: 100%;
+}
